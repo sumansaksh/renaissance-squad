@@ -178,6 +178,7 @@ function QuetionApp() {
             <Button classname="" onClick={generateRandomQuestion}>
               play
             </Button>
+            <Button>hello</Button>
           </div>
         )}
       </div>
