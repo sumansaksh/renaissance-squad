@@ -99,11 +99,15 @@ function QuetionApp() {
     },
   ];
   const speak = (text) => {
-    const utterance = new SpeechSynthesisUtterance(text);
+    const processedText = text.replace(/_+/g, "blank space");
+    const utterance = new SpeechSynthesisUtterance(processedText);
+    const voices = speechSynthesis.getVoices();
+    const desiredVoice = voices.find((voice) => voice.name === "Alex");
+    utterance.voice = desiredVoice;
     speechSynthesis.speak(utterance);
   };
   const generateRandomQuestion = () => {
-    const randomIndex = Math.floor(Math.random() * questions.length);
+    const randomIndex = 1;
     console.log(randomIndex, "random");
     const question = questions[randomIndex];
     setCurrentQuestion(question);
@@ -175,10 +179,9 @@ function QuetionApp() {
           <p>No question available.</p>
         ) : (
           <div className="flex justify-center">
-            <Button classname="" onClick={generateRandomQuestion}>
+            <Button className="" onClick={generateRandomQuestion}>
               play
             </Button>
-            <Button>hello</Button>
           </div>
         )}
       </div>
