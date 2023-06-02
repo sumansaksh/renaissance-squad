@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
-import { useMutation, gql } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
+import { useMutation as queryMutation } from "react-query";
+import Cookies from "js-cookie";
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($input: LoginInput!) {
@@ -30,7 +32,7 @@ function Login() {
       });
 
       const userId = data.login.id;
-      console.log("User ID:", userId);
+      Cookies.set("auth_user_id", userId);
 
       // Navigate to the desired page using react-router-dom history
       // Replace '/homepage' with the actual path you want to navigate to
@@ -71,10 +73,6 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-          </div>
-          <div className="flex items-center gap-2">
-            <Checkbox id="remember" />
-            <Label htmlFor="remember">Remember me</Label>
           </div>
           <Button type="submit">Submit</Button>
         </form>

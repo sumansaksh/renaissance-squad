@@ -10,7 +10,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { BrowserRouter } from "react-router-dom";
 const client = new ApolloClient({
-  uri: "https://demo-experience-api.masaischool.com/",
+  uri: "http://localhost:4000/",
   cache: new InMemoryCache(),
 });
 const queryClient = new QueryClient();
