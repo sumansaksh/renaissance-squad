@@ -93,6 +93,7 @@ function SpeakingDiv({ autoPlay, allowPause, allowReplay, children }) {
     msg.voice = voice;
 
     speechSynthesisInstance.speak(msg);
+    console.log(msg, "message");
     return msg;
   }
 

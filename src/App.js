@@ -18,11 +18,6 @@ function App() {
     }
   }, [userId]);
 
-  if (!userId) {
-    // If userData.id is null, render the Login component
-    return <Login />;
-  }
-
   return (
     <div className="App">
       <Router>

@@ -40,7 +40,7 @@ export async function fetchChatCompletion(messages) {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: `Bearer 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`,
+        Authorization: `Bearer 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`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
