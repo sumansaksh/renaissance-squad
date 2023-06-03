@@ -11,7 +11,7 @@ const fetchTextFromAudio = async (blob) => {
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer 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`,
+          Authorization: `Bearer`,
         },
         body: formData,
       }
